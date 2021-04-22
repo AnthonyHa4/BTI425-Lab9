@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { GuardAuthService } from './guard-auth.service';
+
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
   {path:"Home", component: HomeComponent},
-  {path:"AboutUs", component: AboutComponent},
-  {path:"ContactUs", component: ContactComponent}
+  {path:"Login", component: LoginComponent},
+  {path:"ContactUs", component: ContactComponent, canActivate: [GuardAuthService]}
 ];
 
 @NgModule({
